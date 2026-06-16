@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Prompt Guard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <main class="root">
+
+    <!-- Background Gradients -->
+    <div class="bg-gradients"></div>
+    <div class="bg-sheen"></div>
+
+    <!-- Glass Panel -->
+    <div class="glass-panel">
+
+      <!-- ── Header ── -->
+      <header class="header">
+        <div class="header-left">
+          <h1 class="app-title">Prime Prompt Guard</h1>
+          <p class="app-subtitle">Auto backup for typed text, private and local only.</p>
+        </div>
+        <div class="header-right">
+          <span class="scanning-badge" id="scanningBadge">
+            <span class="scan-dot" id="scanDot"></span>
+            <span id="scanLabel">scanning</span>
+          </span>
+        </div>
+      </header>
+
+      <!-- ── Body ── -->
+      <div class="body-content">
+
+        <!-- Protection Card -->
+        <div class="protection-card">
+
+          <!-- Toggle Row -->
+          <div class="protection-row">
+            <p class="protection-label">Protection</p>
+            <button
+              type="button"
+              id="toggleBtn"
+              class="toggle-btn enabled"
+              aria-label="Toggle protection"
+            >
+              <span class="toggle-thumb" id="toggleThumb"></span>
+            </button>
+          </div>
+
+          <!-- Retention Slider -->
+          <div class="retention-wrap">
+            <div class="retention-top">
+              <span class="retention-label-txt">Retention window</span>
+              <span class="retention-value" id="retentionValue">3h / up to 12h</span>
+            </div>
+            <input
+              type="range"
+              id="retentionSlider"
+              class="range-gold"
+              min="1"
+              max="12"
+              value="3"
+            />
+          </div>
+        </div>
+
+        <!-- Saved Pages Section -->
+        <div class="pages-section">
+          <div class="pages-header">
+            <h2 class="pages-title">Saved pages <span class="pages-count" id="pagesCount">(0 / max 5)</span></h2>
+            <button type="button" id="clearAllBtn" class="clear-btn">Clear all</button>
+          </div>
+
+          <!-- Pages List -->
+          <ul class="pages-list" id="pagesList"></ul>
+
+          <!-- Empty State -->
+          <div class="empty-state hidden" id="emptyState">
+            <div class="empty-icon">🔍</div>
+            <p class="empty-title">Nothing saved yet</p>
+            <p class="empty-hint">Start typing on any page — it will auto-save here.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Footer ── -->
+      <footer class="footer-bar">
+        🔒 All data stays in your browser only — no server, no tracking
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
